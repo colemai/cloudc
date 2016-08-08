@@ -1,0 +1,1 @@
+json.array! @eulers, partial: 'eulers/euler', as: :euler

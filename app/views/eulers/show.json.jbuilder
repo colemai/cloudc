@@ -1,0 +1,1 @@
+json.partial! "eulers/euler", euler: @euler

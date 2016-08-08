@@ -1,0 +1,19 @@
+<%= simple_form_for(@euler) do |f| %>
+  <% if @euler.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@euler.errors.count, "error") %> prohibited this euler from being saved:</h2>
+
+      <ul>
+      <% @euler.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.input :x, as: :integer %>
+    <%= f.input :y, as: :integer %> 
+    <%= f.submit %>
+  </div>
+<% end %>
