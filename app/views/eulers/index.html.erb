@@ -24,6 +24,19 @@
   </tbody>
 </table>
 
+<h2>Import CSV</h2>
+<%= form_tag import_eulers_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
+
+
+
+
+   
+  
+
+
 <br>
 
 <%= link_to 'New Euler', new_euler_path %>

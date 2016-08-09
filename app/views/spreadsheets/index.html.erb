@@ -1,0 +1,9 @@
+<h3>
+  <tbody>
+  <% Spreadsheet.all.each do |user| %>
+  <tr><%= user.id %></tr>
+  <tr><%= user.col_a %></tr>
+  <tr><%= user.col_b %></tr>
+<% end %>
+</tbody>
+</h3>

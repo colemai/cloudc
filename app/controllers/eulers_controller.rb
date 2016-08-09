@@ -1,10 +1,17 @@
 class EulersController < ApplicationController
   before_action :set_euler, only: [:show, :edit, :update, :destroy]
 
+
+  def import
+    @arrr = Array.new
+    @arrr << CSV.open((params[:file].read)[0..-3])           
+  end
+
   # GET /eulers
   # GET /eulers.json
   def index
     @eulers = Euler.all
+
   end
 
   # GET /eulers/1
@@ -61,6 +68,7 @@ class EulersController < ApplicationController
     end
   end
 
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_euler
@@ -70,6 +78,6 @@ class EulersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def euler_params
       params.fetch(:euler, {})
-      params.require(:euler).permit(:x,:y)
+      params.require(:euler).permit(:x,:y, :answer)
     end
 end

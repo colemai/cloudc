@@ -11,13 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160807235326) do
+ActiveRecord::Schema.define(version: 20160808055716) do
 
   create_table "eulers", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "x"
     t.integer  "y"
+    t.integer  "answer"
+  end
+
+  create_table "spreadsheets", force: :cascade do |t|
+    t.string   "col_a"
+    t.string   "col_b"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
