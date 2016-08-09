@@ -1,10 +1,22 @@
 class EulersController < ApplicationController
   before_action :set_euler, only: [:show, :edit, :update, :destroy]
 
+require 'csv'
+
+  
 
   def import
     @arrr = Array.new
-    @arrr << CSV.open((params[:file].read)[0..-3])           
+    
+    #@arrr << CSV.open((params[:file].read)[0..-3])
+    csv_text = File.read(params[:file].path) #works    
+    @arrr = CSV.parse(csv_text, :headers => false)
+    
+    @answers = Array.new
+    @arrr.each do |row|
+      @answers << Euler.mite(row[0].to_i,row[1].to_i)
+    end
+        
   end
 
   # GET /eulers
