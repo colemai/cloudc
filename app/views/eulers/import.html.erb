@@ -1,12 +1,21 @@
+<div class="container">
+  <div class ="jumbotron">
+    <p id="notice"><%= notice %></p>
 
-<h1>CSV</h1>
+    <div class="page-header well">
+      <h1>CSV Results</h1>
+    </div>
 
-<%= @arrr %>
+    <table class="table table-bordered">
+		<tbody>
+	    	<tr>
+	    	<% @answers.each do |a| %>
+	        	<td><%= a %></td>
+	        <% end %>
+	        </tr>
+	    </tbody>
+	</table>
 
 
-<h1>Answers</h1>
-<%= Euler.ite(Euler.last.x,Euler.last.y) %>
-<p> uo</p>
-<% @answers.each do |a| %>
-	<%= a %><br>
-<% end %>
+</div>
+</div>

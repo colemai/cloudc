@@ -1,42 +1,50 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class ="jumbotron">
+    <p id="notice"><%= notice %></p>
 
-<h1>Listing Eulers</h1>
+    <div class="page-header well">
+      <h1>Listing Eulers</h1>
+    </div>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>X</th>
+              <th>Y</th>
+              <th>Answer</th>
+              <th colspan="4"></th>
+            </tr>
+          </thead>
 
-  <tbody>
-    <% @eulers.each do |euler| %>
-      <tr>
-        <td><%= euler.x %></td>
-        <td><%= euler.y %></td>
-        <td><%= "answer" %></td>
-        <td><%= Euler.ite(euler.x,euler.y) %></td>
-        <td><%= link_to 'Show', euler %></td>
-        <td><%= link_to 'Edit', edit_euler_path(euler) %></td>
-        <td><%= link_to 'Destroy', euler, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+          <tbody>
+            <% @eulers.each do |euler| %>
+              <tr>
+                <td><%= euler.x %></td>
+                <td><%= euler.y %></td>
+                <td><%= Euler.calc(euler.x,euler.y) %></td>
+                <td><%= link_to 'Edit', edit_euler_path(euler) %></td>
+                <td><%= link_to 'Destroy', euler, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        
+        <br>
+        <button type="button" class="btn btn-default"><%= link_to 'New Euler', new_euler_path %></button>
 
-<h2>Import CSV</h2>
-<%= form_tag import_eulers_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import" %>
-<% end %>
+        <br>
+        <div>
+          <h2>Import CV</h2>
+          <small class="text-muted">Upload and submit a csv file in order to search it for the last-calculated Euler prime</small>
+        </div>
+        <br>
+        <%= form_tag import_eulers_path, multipart: true do %>
+          <%= file_field_tag :file %>
+          <br>
+          <%= submit_tag "Import"  %>
+        <% end %>
 
-
-
-
-   
-  
-
-
-<br>
-
-<%= link_to 'New Euler', new_euler_path %>
+        <br>
+        
+  </div>
+</div>

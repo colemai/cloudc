@@ -3,45 +3,33 @@ class EulersController < ApplicationController
 
 require 'csv'
 
-  
-
   def import
-    @arrr = Array.new
-    
-    #@arrr << CSV.open((params[:file].read)[0..-3])
-    csv_text = File.read(params[:file].path) #works    
-    @arrr = CSV.parse(csv_text, :headers => false)
+    @csv_rows = Array.new
+    csv_text = File.read(params[:file].path)    
+    @csv_rows = CSV.parse(csv_text, :headers => false)
     
     @answers = Array.new
-    @arrr.each do |row|
-      @answers << Euler.mite(row[0].to_i,row[1].to_i)
+    @csv_rows.each do |row|
+      @answers << Euler.filter(row[0].to_i,row[1].to_i)
     end
         
   end
 
-  # GET /eulers
-  # GET /eulers.json
   def index
     @eulers = Euler.all
 
   end
 
-  # GET /eulers/1
-  # GET /eulers/1.json
   def show
   end
 
-  # GET /eulers/new
   def new
     @euler = Euler.new
   end
 
-  # GET /eulers/1/edit
   def edit
   end
 
-  # POST /eulers
-  # POST /eulers.json
   def create
     @euler = Euler.new(euler_params)
 
@@ -56,8 +44,6 @@ require 'csv'
     end
   end
 
-  # PATCH/PUT /eulers/1
-  # PATCH/PUT /eulers/1.json
   def update
     respond_to do |format|
       if @euler.update(euler_params)
@@ -70,8 +56,6 @@ require 'csv'
     end
   end
 
-  # DELETE /eulers/1
-  # DELETE /eulers/1.json
   def destroy
     @euler.destroy
     respond_to do |format|
