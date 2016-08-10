@@ -6,15 +6,11 @@
       <h1>CSV Results</h1>
     </div>
 
-    <table class="table table-bordered">
-		<tbody>
-	    	<tr>
+    
 	    	<% @answers.each do |a| %>
-	        	<td><%= a %></td>
-	        <% end %>
-	        </tr>
-	    </tbody>
-	</table>
+	        	<% unless a.nil? %>
+	        	<div class="well well-sm"><%= a %></div><% end %>
+	        	<% end %>
 
 
 </div>

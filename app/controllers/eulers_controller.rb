@@ -10,7 +10,8 @@ require 'csv'
     
     @answers = Array.new
     @csv_rows.each do |row|
-      @answers << Euler.filter(row[0].to_i,row[1].to_i)
+      @answers << Euler.filter(row[0].to_i)
+      @answers << Euler.filter(row[1].to_i)
     end
         
   end
@@ -25,6 +26,7 @@ require 'csv'
 
   def new
     @euler = Euler.new
+    
   end
 
   def edit

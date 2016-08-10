@@ -1,12 +1,17 @@
 <div class="container">
-  <div class ="jumbotron">
+  <div class ="jumbotron" style="margin-top:4% !important">
     <p id="notice"><%= notice %></p>
 
+    <div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+
     <div class="page-header well">
-      <h1>Listing Eulers</h1>
+      <center><h1>Euler Primes</h1></center>
     </div>
 
         <table class="table table-hover">
+          <% unless Euler.last.nil? %>
           <thead>
             <tr>
               <th>X</th>
@@ -15,6 +20,7 @@
               <th colspan="4"></th>
             </tr>
           </thead>
+          <% end %>
 
           <tbody>
             <% @eulers.each do |euler| %>
@@ -22,29 +28,39 @@
                 <td><%= euler.x %></td>
                 <td><%= euler.y %></td>
                 <td><%= Euler.calc(euler.x,euler.y) %></td>
-                <td><%= link_to 'Edit', edit_euler_path(euler) %></td>
-                <td><%= link_to 'Destroy', euler, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td><%= link_to 'Delete', euler, method: :delete, data: { confirm: 'Are you sure?' } %></td>
               </tr>
             <% end %>
           </tbody>
         </table>
         
         <br>
-        <button type="button" class="btn btn-default"><%= link_to 'New Euler', new_euler_path %></button>
+        <center><button type="button" class="btn btn-default"><%= link_to 'New Euler', new_euler_path %></button></center>
 
         <br>
-        <div>
-          <h2>Import CV</h2>
-          <small class="text-muted">Upload and submit a csv file in order to search it for the last-calculated Euler prime</small>
-        </div>
         <br>
-        <%= form_tag import_eulers_path, multipart: true do %>
-          <%= file_field_tag :file %>
+        <br>
+        <div class="well well-sm">
+        <center>
+          <div>
+            <h2>Import CVS</h2>
+            <small class="text-muted">Upload and submit a csv file in order to search it for the last-calculated Euler prime</small>
+          </div>
           <br>
-          <%= submit_tag "Import"  %>
-        <% end %>
+          <%= form_tag import_eulers_path, multipart: true do %>
+            <%= file_field_tag :file %>
+            <br>
+            <%= submit_tag "Import"  %>
+          <% end %>
+          </div>
+        </center>
 
+      
         <br>
+
+        </div>
+  <div class="col-md-2"></div>
+  </div>
         
   </div>
 </div>

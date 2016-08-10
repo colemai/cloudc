@@ -18,11 +18,9 @@ class Euler < ActiveRecord::Base
 	    arr[x-1]
 	end
 
-	def self.filter(a,b)
+	def self.filter(a)
 		if a == Euler.calc(Euler.last.x,Euler.last.y)
 			return a
-		elsif b == Euler.calc(Euler.last.x,Euler.last.y)
-			return b
 		end
 	end
 
