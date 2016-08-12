@@ -4,7 +4,7 @@ class Spreadsheet < ActiveRecord::Base
 		CSV.foreach(file.path, headers: false) do |row|
 			  hash = {
 			    col_a: row[0],
-			    col_b: row[1],
+			    col_b: row[1]
 			    }
   			Spreadsheet.create!(hash)
         end
