@@ -2,7 +2,7 @@ To run this code make sure you have recent versions of rails, ruby and sqlite3 i
 
 Clone the cloudc repo to your computer. Open the terminal, navigate into the cloudc repo. 
 
-In the terminal run 'bundle install', 'rake db:create, 'rake db:migrate'.
+In the terminal run 'bundle install', then 'rake db:create' and then 'rake db:migrate'.
 
 After this, run 'rails s'
 
