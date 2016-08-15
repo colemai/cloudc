@@ -2,6 +2,7 @@ class EulersController < ApplicationController
   before_action :set_euler, only: [:show, :edit, :update, :destroy]
 
 require 'csv'
+require 'bigdecimal'
 
   def import
     @csv_rows = Array.new
@@ -18,6 +19,11 @@ require 'csv'
 
   def index
     @eulers = Euler.all
+
+    def bigtest(g)
+    na = (BigDecimal(g))
+    number_with_precision(na, precision: 4, significant: true)
+  end
 
   end
 
